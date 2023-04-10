@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React,{useState, useEffect, useRef} from "react";
 
 import './style.css'
 
@@ -7,14 +7,25 @@ import valoratName from '../../assets/imgs/Home/valorantNome.png'
 import logout from '../../assets/imgs/Home/logout.png'
 import conhecaImg from '../../assets/imgs/Home/conheca-img.png'
 import personagens from '../../assets/imgs/Home/personagens-agentes.png'
+import bannerLoud from '../../assets/imgs/Home/Banner-loud.png'
+import bannerTorneioComunidade from '../../assets/imgs/Home/Banner-2.png'
 
 import {Link} from 'react-scroll'
 import {Link as A} from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 
 const Home = () =>{
 
-    
+    const carousel = useRef()
+
+    const [width, setWidth] = useState(0)
+
+    useEffect(() =>{
+         
+        setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth)
+        console.log(width)
+    },[])
     return (
 
         <div>
@@ -82,7 +93,66 @@ const Home = () =>{
                         <h1>NOTICÍAS</h1>
                     </div>
                     <div className="container-main-section-four-slider">
+                        <motion.div ref={carousel} className="container-main-section-four-slider-carousel" whileTap={{cursor:"grabbing"}}>
+                            <motion.div className="container-main-section-four-slider-carousel-inner" drag="x" dragConstraints={{right:0, left:-width}}
 
+                            >
+                                <motion.div className="container-main-section-four-slider-carousel-inner-itens">
+                                    <div className="carousel-inner-itens-banner">
+                                        <img src={bannerLoud} alt="loud"/>
+                                    </div>
+                                    <div className="carousel-inner-itens-txt">
+                                        <div className="carousel-inner-itens-txt-num">
+                                            <h1>01</h1>
+                                        </div>
+                                        <div className="carousel-inner-itens-txt-box">
+                                            <div className="carousel-inner-itens-txt-box-title">
+                                                <h3>Comunidade</h3>
+                                            </div>
+                                            <div className="carousel-inner-itens-txt-box-desc">
+                                                <h1>VALORANT Champions 2022: <span className="span-green">LOUD</span>  Campeã mundial <span className="span-green">final <br/> da Upper</span> </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                                <motion.div className="container-main-section-four-slider-carousel-inner-itens">
+                                    <div className="carousel-inner-itens-banner">
+                                        <img src={bannerTorneioComunidade} alt="Torneio da comunidade"/>
+                                    </div>
+                                    <div className="carousel-inner-itens-txt">
+                                        <div className="carousel-inner-itens-txt-num">
+                                            <h1>01</h1>
+                                        </div>
+                                        <div className="carousel-inner-itens-txt-box">
+                                            <div className="carousel-inner-itens-txt-box-title">
+                                                <h3>Comunidade</h3>
+                                            </div>
+                                            <div className="carousel-inner-itens-txt-box-desc">
+                                                <h1>TORNEIOS DE COMUNIDADE - <span>24/03 A 30/03</span> </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                                <motion.div className="container-main-section-four-slider-carousel-inner-itens">
+                                    <div className="carousel-inner-itens-banner">
+                                        <img src={bannerTorneioComunidade} alt="Torneio da comunidade"/>
+                                    </div>
+                                    <div className="carousel-inner-itens-txt">
+                                        <div className="carousel-inner-itens-txt-num">
+                                            <h1>01</h1>
+                                        </div>
+                                        <div className="carousel-inner-itens-txt-box">
+                                            <div className="carousel-inner-itens-txt-box-title">
+                                                <h3>Comunidade</h3>
+                                            </div>
+                                            <div className="carousel-inner-itens-txt-box-desc">
+                                                <h1>TORNEIOS DE COMUNIDADE - <span>17/03 A 23/03</span></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
                     </div>
                 </section>
             </main>

@@ -9,6 +9,7 @@ import conhecaImg from '../../assets/imgs/Home/conheca-img.png'
 import personagens from '../../assets/imgs/Home/personagens-agentes.png'
 import bannerLoud from '../../assets/imgs/Home/Banner-loud.png'
 import bannerTorneioComunidade from '../../assets/imgs/Home/Banner-2.png'
+import logoRiotFooter from '../../assets/imgs/Home/logo-riot-footer.png'
 
 import {Link} from 'react-scroll'
 import {Link as A} from 'react-router-dom'
@@ -192,6 +193,10 @@ const Home = () =>{
                         </motion.div>
                     </div>
                 </section>
+                <footer className="container-footer">
+                    <img src={logoRiotFooter} alt="riot logo"/>
+                    <h3>©RIOT GAMES, INC. RIOT GAMES, VALORANT E QUALQUER LOGOTIPO ASSOCIADOS</h3>
+                </footer>
             </main>
         </div>
     )

@@ -13,7 +13,7 @@ import bannerTorneioComunidade from '../../assets/imgs/Home/Banner-2.png'
 import {Link} from 'react-scroll'
 import {Link as A} from 'react-router-dom'
 import {motion} from 'framer-motion'
-
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Home = () =>{
 
@@ -21,11 +21,26 @@ const Home = () =>{
 
     const [width, setWidth] = useState(0)
 
+    const [show, setShow] = useState('container-header-mobile-box')
+
+    const [confirm, setConfirm] = useState(false)
+
+    const openOrClose = () =>{
+
+        if(confirm === false){
+            setConfirm(true)
+            setShow('container-header-mobile-box activeMobile')
+        }else{
+            setConfirm(false)
+            setShow('container-header-mobile-box ')
+        }
+    }
+
     useEffect(() =>{
          
         setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth)
         console.log(width)
-    },[])
+    },[width])
     return (
 
         <div>
@@ -46,6 +61,28 @@ const Home = () =>{
                 </div>
                 <div className="container-header-logout">
                     <A to='/'>Sair <span><img src={logout} alt='logout'></img></span></A>
+                </div>
+                <div className="container-header-button-mobile" onClick={openOrClose}>
+                    {confirm === false?(
+                        <FaBars></FaBars>
+                    ):(
+                        <FaTimes></FaTimes>
+                    )}
+                </div>
+                <div className={show}>
+                    <div className="container-header-mobile-box-left">
+                        <Link to="container-main-section-one" activeClass="ativo"  spy={true} smooth={true}>Jogue agora</Link>
+                        <Link to="container-main-section-two" activeClass="ativo"  spy={true} smooth={true}>Sobre o jogo</Link>
+                        <Link to="container-main-section-three" activeClass="ativo"  spy={true} smooth={true} >Agentes</Link>
+                        <Link to="container-main-section-four"activeClass="ativo" spy={true} smooth={true}>Noticías</Link>
+                    </div>
+                    <div className="container-header-mobile-box-right">
+                        <h3>A-</h3>
+                        <h3>A</h3>
+                        <h3>A+</h3>
+                        <A to='/'>Sair <span><img src={logout} alt='logout'></img></span></A>
+                    </div>
+
                 </div>
             </header>
             <main>
@@ -81,7 +118,7 @@ const Home = () =>{
                             <h1>AGENTES</h1>
                             <h5>A CRIATIVIDADE É SUA MELHOR ARMA.</h5>
                             <p>Mais do que armas e munição, <span>VALORANT</span> inclui agentes com habilidades adaptativas, rápidas e letais, que criam oportunidades para você exibir sua mecânica de tiro. Cada Agente é único, assim como os momentos de destaque de cada partida!</p>
-                            <A>VER TODOS OS AGENTES</A>
+                            <A to='https://playvalorant.com/pt-br/agents/gekko/' target="_blank">VER TODOS OS AGENTES</A>
                         </div>
                     </div>
                     <div className="container-main-section-three-img">

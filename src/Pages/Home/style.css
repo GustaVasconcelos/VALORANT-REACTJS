@@ -119,6 +119,7 @@
 
 .container-header-button-mobile svg{
     cursor: pointer;
+    color: #fff;
 }
 
 .container-header-mobile-box{
@@ -266,7 +267,7 @@
     line-height: 100%;
     font-family: 'Oswald', sans-serif;
     line-height: 80px;
-    font-size: clamp(1.5rem, 2.5rem + 1.5vw, 10rem);
+    font-size: clamp(1rem, 2rem + 1.5vw, 10rem);
 }
 
 .container-main-section-two-box-txt h5{
@@ -345,7 +346,7 @@
     line-height: 100%;
     font-family: 'Oswald', sans-serif;
     color: #ffffff;
-    font-size: clamp(1.5rem, 3rem + 1.5vw, 10rem);
+    font-size: clamp(1rem, 2rem + 1.5vw, 10rem);
 }
 
 .container-main-section-three-txt h5{
@@ -429,7 +430,7 @@
     color: #0F1923;
     line-height: 100%;
     font-family: 'Oswald', sans-serif;
-    font-size: clamp(1.5rem, 3rem + 1.5vw, 10rem);
+    font-size: clamp(1rem, 2rem + 1.5vw, 10rem);
 }
 
 .container-main-section-four-slider{
@@ -600,8 +601,7 @@
 
     .container-main-section-two-box-txt h1{
 
-        line-height: 60px;
-        font-size: clamp(1.5rem, 2.5rem + 1.5vw, 10rem);
+        line-height: 50px;
     }
     
     #container-main-section-three{
